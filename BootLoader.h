@@ -123,6 +123,11 @@
 		#define PPS_URX_PIN		21				//UART RX pin,pin RP21 (Pin 38)
                 #define PPS_URX_REG             RPINR19bits.U2RXR
 
+	#elif defined(__PIC24FJ256GB206__)
+		#define PPS_UTX_PIN		RPOR9bits.RP19R                 //UART TX pin,pin RP19 (Pin 36)
+		#define PPS_URX_PIN		21				//UART RX pin,pin RP21 (Pin 38)
+                #define PPS_URX_REG             RPINR19bits.U2RXR
+
 	#elif (defined(__PIC24FJ256GB110__) || defined(__PIC24FJ256GA110__))
 		#define PPS_UTX_PIN		RPOR8bits.RP17R                 //UART TX pin
 		#define PPS_URX_PIN             10				//UART RX pin
@@ -163,11 +168,15 @@
 
 #elif 	defined(__PIC24FJ64GA004__)
 	#define CONFIG_START 		0xABFC	
-	#define CONFIG_END 		0xABFE	
+	#define CONFIG_END 		0xABFE
 
 #elif 	defined(__PIC24FJ64GB004__)
 	#define CONFIG_START 		0xABF8
 	#define CONFIG_END 		0xABFE
+
+#elif 	defined(__PIC24FJ256GB206__)
+	#define CONFIG_START 		0x02ABF8
+	#define CONFIG_END 		0x02ABFE
 
 #elif   defined(__PIC24F16KA102__)
 	#define CONFIG_START 		0xF80000	
