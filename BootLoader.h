@@ -72,7 +72,7 @@
 //#define USE_VECTOR_PROTECT            //Use Reset and IVT protection
 //#define USE_HI_SPEED_BRG              //Use BRGH=1, UART high speed mode
 //#define USE_WORKAROUNDS               //UART workarounds for device errata
-#define USE_AUTOBAUD                    //Use hardware autobaud feature
+#//define USE_AUTOBAUD                    //Use hardware autobaud feature
 //#define USE_AES                       //Use encryption
 //#define USE_RESET_SAVE                //Restores the reset vector without using USE_BOOT_PROTECT
 
@@ -82,7 +82,7 @@
 
 #define FCY                     16000000//Instruction clock speed (Fosc/2)
 
-#define UARTNUM                 2       //Which device UART to use
+#define UARTNUM                 3       //Which device UART to use
 
 #ifndef USE_AUTOBAUD
     #define BAUDRATE            38400
@@ -124,9 +124,13 @@
                 #define PPS_URX_REG             RPINR19bits.U2RXR
 
 	#elif defined(__PIC24FJ256GB206__)
-		#define PPS_UTX_PIN		RPOR9bits.RP19R                 //UART TX pin,pin RP19 (Pin 36)
-		#define PPS_URX_PIN		21				//UART RX pin,pin RP21 (Pin 38)
-                #define PPS_URX_REG             RPINR19bits.U2RXR
+		#define PPS_UTX_PIN		RPOR14bits.RP28R             //UART TX pin,pin RP14 (Pin 29)
+		#define PPS_URX_PIN		14				//UART RX pin,pin RP21 (Pin 38)
+                #define PPS_URX_REG             RPINR17bits.U3RXR
+
+// OUT_FN_PPS_U3TX				28  /* RPn tied to UART3 Transmit */
+// IN_FN_PPS_U3RX				RPINR17bits.U3RXR
+
 
 	#elif (defined(__PIC24FJ256GB110__) || defined(__PIC24FJ256GA110__))
 		#define PPS_UTX_PIN		RPOR8bits.RP17R                 //UART TX pin
@@ -267,6 +271,10 @@
 	#define U1RTS_IO	4
 	#define U2TX_IO		5
 	#define U2RTS_IO	6
+	#define U3TX_IO		7
+	#define U3RTS_IO	8
+	#define U4TX_IO		9
+	#define U4RTS_IO	10
 
 	extern void ioMap();
 #endif
