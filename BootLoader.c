@@ -143,6 +143,11 @@ void BootLoader(void)
 	#endif
 	UxSTA = 0x0400;                                                                 //Enable TX
 
+        /// test
+        //PutResponse(1);
+        /// end test
+
+        
     while(1) {
 		#ifdef USE_RUNAWAY_PROTECT
 			writeKey1 = 0xFFFF;                                                     //Modify keys to ensure proper program flow

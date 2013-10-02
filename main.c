@@ -46,8 +46,6 @@ _CONFIG3( WPFP_WPFP255 & SOSCSEL_SOSC & WUTSEL_LEG & WPDIS_WPDIS & WPCFG_WPCFGDI
 // Main
 //
 
-#define __ICD2RAM
-
 int main()
 {
     CLKDIVbits.CPDIV=0;                                                             //Set the system clock to 32mhz.

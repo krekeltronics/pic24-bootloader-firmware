@@ -72,7 +72,7 @@
 //#define USE_VECTOR_PROTECT            //Use Reset and IVT protection
 //#define USE_HI_SPEED_BRG              //Use BRGH=1, UART high speed mode
 //#define USE_WORKAROUNDS               //UART workarounds for device errata
-#//define USE_AUTOBAUD                    //Use hardware autobaud feature
+//#define USE_AUTOBAUD                    //Use hardware autobaud feature
 //#define USE_AES                       //Use encryption
 //#define USE_RESET_SAVE                //Restores the reset vector without using USE_BOOT_PROTECT
 
@@ -85,7 +85,7 @@
 #define UARTNUM                 3       //Which device UART to use
 
 #ifndef USE_AUTOBAUD
-    #define BAUDRATE            38400
+    #define BAUDRATE            9600
 #endif
 
 #define MAX_PACKET_SIZE		261	//Max packet size
@@ -119,13 +119,14 @@
                 #define PPS_URX_REG     	RPINR19bits.U2RXR
 
 	#elif defined(__PIC24FJ64GB004__)
-		#define PPS_UTX_PIN		RPOR9bits.RP19R                 //UART TX pin,pin RP19 (Pin 36)
-		#define PPS_URX_PIN		21				//UART RX pin,pin RP21 (Pin 38)
+		#define PPS_UTX_PIN		RPOR9bits.RP19R //UART TX pin,pin RP19 (Pin 36)
+		#define PPS_URX_PIN		21		//UART RX pin,pin RP21 (Pin 38)
                 #define PPS_URX_REG             RPINR19bits.U2RXR
 
+
 	#elif defined(__PIC24FJ256GB206__)
-		#define PPS_UTX_PIN		RPOR14bits.RP28R             //UART TX pin,pin RP14 (Pin 29)
-		#define PPS_URX_PIN		14				//UART RX pin,pin RP21 (Pin 38)
+		#define PPS_UTX_PIN		RPOR14bits.RP29R             //UART TX pin,pin RP14 (Pin 29)
+		#define PPS_URX_PIN		30				// ?? UART RX pin,pin RP21 (Pin 38)
                 #define PPS_URX_REG             RPINR17bits.U3RXR
 
 // OUT_FN_PPS_U3TX				28  /* RPn tied to UART3 Transmit */
